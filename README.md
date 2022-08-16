@@ -8,7 +8,7 @@ The task is to identify the origin of the stroke using the high resolution sampl
 This data will be displayed by patient (NOT photo), and the CE and LAA will be portions of a whole the images represent. 
 For example, someone may have a result of 0.75 CE and 0.25 LAA. 
 I am curious as to whether the difficulty of this project relates to the variation of each image. 
-I wander if focussing on the components of the tissue, rather than the tissue itself would help to better train a model. 
+I wander if focusing on the components of the tissue, rather than the tissue itself would help to better train a model. 
 I think a lot of what is preventing a successful model in this case is the shape or size of the tissue. 
 
 ## Selection of Data 
@@ -38,13 +38,13 @@ After reformatting the images, the images used for the models looked something l
 ### Image After 
 ![image](https://user-images.githubusercontent.com/84781380/184847240-2b736c45-6b42-4714-bcec-d781d04e443f.png)
 
-The resulting image eliminated white space, and kept the shape of the images from inteferring with the model results. 
+The resulting image eliminated white space and kept the shape of the images from interfering with the model results. 
 The focus of these images needed to be on the tissue components, which is why the use of tiling close ups of the images together was crucial. 
 ### The Model 
-The model took some time. It was overtrained slighly at first multiple versions of my code were generated to determine the best model. The other versions can be found here. 
+The model took some time. It was overtrained slightly at first multiple versions of my code were generated to determine the best model. The other versions can be found here. 
 https://www.kaggle.com/code/krisilahammett/fork-of-mayo-clinic/notebook
 ### The Data 
-The model was trained per image file not patient, so for the test data the results had to be seperated.
+The model was trained per image file not patient, so for the test data the results had to be separated.
 #### The CNN Model Summary 
 ![image](https://user-images.githubusercontent.com/84781380/184852089-0a906935-297d-4fa6-96c7-fe1a69202266.png)
 ![image](https://user-images.githubusercontent.com/84781380/184853311-ce236248-7348-4576-9fa4-7f975cb50493.png)
@@ -57,9 +57,9 @@ The model was trained per image file not patient, so for the test data the resul
 
 Overall, I do think the model was accurate. I think zooming in on the texture of the tissues while reducing the overall pixelation was the best way to run an effective model without putting too much stress on the RAM and CPU. 
 ## Discussion
-Overall, I think the model was trained pretty successfully. I did many different versions of my code to try and get the model validation accuracy higher, but I think the reason the accuracy was not going even higher was because there were far more CE images in the dataset than there were LAA, which was pretty difficult to train off of. I had to make sure I was getting the LAA photos in my training dataset. I originally thought shrinking the dataset would help, but that only decreased the number of LAA I had in my training. 
+Overall, I think the model was trained successfully. I did many different versions of my code to try and get the model validation accuracy higher, but I think the reason the accuracy was not going even higher was because there were far more CE images in the dataset than there were LAA, which was difficult to train off of. I had to make sure I was getting the LAA photos in my training dataset. I originally thought shrinking the dataset would help, but that only decreased the number of LAA I had in my training. 
 
-The reformatting of the images was pretty successful. The reformatting was able to capture the details of the tissues without using a large ammount of pixels. It also eliminated that white space that came with many of the images. Reformatting was necessary, regardless of the way it was done. The pictures were all different sizes, and some had a lot of white space. It was impossible to use just a portion of the imag without losing potential data. 
+The reformatting of the images was successful. The reformatting was able to capture the details of the tissues without using a large number of pixels. It also eliminated that white space that came with many of the images. Reformatting was necessary, regardless of the way it was done. The pictures were all different sizes, and some had a lot of white space. It was impossible to use just a portion of the image without losing potential data. 
 
 Due to the data being so large, I had to split up the code into to parts. I loaded a version that created a dataset of .npy files, after splitting the important aspects of the images into their respective tiles. Then I commented out that part of the code, and I ran the code again with just the code that placed the tiles together and executed the model. I put the .npy files I had previously created with the input files. There was not a lot of test data, so I only had to do these steps for the training. The test data I was able to do in one run. 
 
@@ -69,12 +69,13 @@ https://www.kaggle.com/competitions/mayo-clinic-strip-ai/data
 
 ## Summary
 
-I first reformatted all the tif files. I used an algortyhm I found online (Cited Below) that seperated the tif files into tiles with little white space that would provide a close up on the tissue contents. I then took the tiles and made a subplot of them. I then formatted in this plot into a large 504x504 numpy array for the keras model. 
+I first reformatted all the TIF files. I used an algorithm I found online (Cited Below) that separated the TIF files into tiles with little white space that would provide a close up on the tissue contents. I then took the tiles and made a subplot of them. I then formatted in this plot into a large 504x504 numpy array for the keras model. 
 
 The keras model appears to be still slightly overtrained. I played around with this for a while. Some of the versions I ran had little test data. Others had more, and I tried to even it out by lowering some of the parameters. 
 
-After the model ran, I saved it, and used it on the very small test model. The patient epitology came out as 100% CE, but that seems to be the more common conclusion.
+After the model ran, I saved it, and used it on the very small test model. The patient origin came out as 100% CE, but that seems to be the more common conclusion.
 
 ### Bibliography 
 
 https://www.kaggle.com/code/yusaku5739/strip-ai-processing-images-to-16x256x256-tiles/notebook
+
