@@ -74,3 +74,7 @@ I first reformatted all the tif files. I used an algortyhm I found online (Cited
 The keras model appears to be still slightly overtrained. I played around with this for a while. Some of the versions I ran had little test data. Others had more, and I tried to even it out by lowering some of the parameters. 
 
 After the model ran, I saved it, and used it on the very small test model. The patient epitology came out as 100% CE, but that seems to be the more common conclusion.
+
+### Bibliography 
+
+https://www.kaggle.com/code/yusaku5739/strip-ai-processing-images-to-16x256x256-tiles/notebook
