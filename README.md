@@ -8,13 +8,14 @@ The task is to identify the origin of the stroke using the high resolution sampl
 This data will be displayed by patient (NOT photo), and the CE and LAA will be portions of a whole the images represent. 
 For example, someone may have a result of 0.75 CE and 0.25 LAA. 
 I am curious as to whether the difficulty of this project relates to the variation of each image. 
-I wander if focusing on the components of the tissue, rather than the tissue itself would help to better train a model. 
+I wonder if focusing on the components of the tissue, rather than the tissue itself would help to better train a model. 
 I think a lot of what is preventing a successful model in this case is the shape or size of the tissue. 
 
 ## Selection of Data 
 The training data is provided in the form of TIF files. 
 There are over a thousand of the high resolution files available to use for the model. 
 The training set includes 754 of these photos. 
+The test set ony incldudes 4 of these photos, and there is a seperate data set with unknown classifications for use. 
 Each photo has a corresponding image ID. The image ID is comprised of the patient ID and the photo number. Some patients have multiple photos, and they will all need to be accounted for when calculating the final predictions. 
 ### Training Data 
 ![image](https://user-images.githubusercontent.com/84781380/184836452-11335068-e578-4d2d-800f-6c5028f50430.png)
@@ -25,6 +26,7 @@ Each photo has a corresponding image ID. The image ID is comprised of the patien
 Some tools/tecniques I used for Analysis are: 
 ### OS, tdqm, glob
 These were mainly used for organizing my data to where I could save ram, and in some cases store previous analysis for later use. 
+There was a storage limit for the competition. My initial submission was stopped because it utlized too much. 
 ### Pandas and Sklearn.preprossing library 
 Manily used for the manipulation of the CSV data. To help get the written data where it needed to be to get the desired output. 
 The label encoder was used to classify the values into binary outputs. 
@@ -69,11 +71,12 @@ https://www.kaggle.com/competitions/mayo-clinic-strip-ai/data
 
 ## Summary
 
-I first reformatted all the TIF files. I used an algorithm I found online (Cited Below) that separated the TIF files into tiles with little white space that would provide a close up on the tissue contents. I then took the tiles and made a subplot of them. I then formatted in this plot into a large 504x504 numpy array for the keras model. 
+I first reformatted all the TIF files. I used an algorithm I found online (Cited Below) that separated the TIF files into tiles with little white space that would provide a close up on the tissue contents. I then took the tiles and made a subplot of them. I formatted this into a plot that produced a large 504x504 numpy array for the keras model. 
 
 The keras model appears to be still slightly overtrained. I played around with this for a while. Some of the versions I ran had little test data. Others had more, and I tried to even it out by lowering some of the parameters. 
 
 After the model ran, I saved it, and used it on the very small test model. The patient origin came out as 100% CE, but that seems to be the more common conclusion.
+![image](https://user-images.githubusercontent.com/84781380/184970106-a5fca025-678a-44e0-8b82-e8020d47970f.png)
 
 ### Bibliography 
 
