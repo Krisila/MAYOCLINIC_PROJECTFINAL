@@ -69,3 +69,8 @@ https://www.kaggle.com/competitions/mayo-clinic-strip-ai/data
 
 ## Summary
 
+I first reformatted all the tif files. I used an algortyhm I found online (Cited Below) that seperated the tif files into tiles with little white space that would provide a close up on the tissue contents. I then took the tiles and made a subplot of them. I then formatted in this plot into a large 504x504 numpy array for the keras model. 
+
+The keras model appears to be still slightly overtrained. I played around with this for a while. Some of the versions I ran had little test data. Others had more, and I tried to even it out by lowering some of the parameters. 
+
+After the model ran, I saved it, and used it on the very small test model. The patient epitology came out as 100% CE, but that seems to be the more common conclusion.
