@@ -37,6 +37,7 @@ After reformattinf the images, the images used for the models looked something l
 ![image](https://user-images.githubusercontent.com/84781380/184847161-63908e07-5e1c-4b28-9f71-cb32771eb94a.png)
 ### Image After 
 ![image](https://user-images.githubusercontent.com/84781380/184847240-2b736c45-6b42-4714-bcec-d781d04e443f.png)
+
 The resulting image eliminated white space, and kept the shape of the images from inteferring with the model results. 
 The focus of these images needed to be on the tissue components, which is why the use of tiling close ups of the images together was crucial. 
 ### The Model 
@@ -44,6 +45,14 @@ The model took some time. It was overtrained slighly at first multiple versions 
 https://www.kaggle.com/code/krisilahammett/fork-of-mayo-clinic/notebook
 ### The Results 
 The model was trained per image file not patient, so for the test data the results had to be seperated.
+#### The CNN Model Summary 
+![image](https://user-images.githubusercontent.com/84781380/184852089-0a906935-297d-4fa6-96c7-fe1a69202266.png)
+##### Final Accuracy: 0.979
+##### Validation Accuracy: 0.6571
+![image](https://user-images.githubusercontent.com/84781380/184852402-acd83e0b-b39c-4565-b4b3-1d24f5cd1c2c.png)
+#### Submission File 
+![image](https://user-images.githubusercontent.com/84781380/184852536-5d2c07a0-374c-4dd5-86e0-161be31ed709.png)
+Overall, I do think the model was accurate. I think zooming in on the texture of the tissues while reducing the overall pixelation was the best way to run an effective model without putting too much stress on the RAM and CPU. 
 ## Discussion
 
 ## Summary
