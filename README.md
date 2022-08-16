@@ -76,7 +76,7 @@ I first reformatted all the TIF files. I used an algorithm I found online (Cited
 The keras model appears to be still slightly overtrained. I played around with this for a while. Some of the versions I ran had little test data. Others had more, and I tried to even it out by lowering some of the parameters. 
 
 After the model ran, I saved it, and used it on the very small test model. The patient origin came out as 100% CE, but that seems to be the more common conclusion.
-![image](https://user-images.githubusercontent.com/84781380/184970106-a5fca025-678a-44e0-8b82-e8020d47970f.png)
+
 
 ### Bibliography 
 
