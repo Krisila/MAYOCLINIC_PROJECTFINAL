@@ -63,5 +63,9 @@ The reformatting of the images was pretty successful. The reformatting was able 
 
 Due to the data being so large, I had to split up the code into to parts. I loaded a version that created a dataset of .npy files, after splitting the important aspects of the images into their respective tiles. Then I commented out that part of the code, and I ran the code again with just the code that placed the tiles together and executed the model. I put the .npy files I had previously created with the input files. There was not a lot of test data, so I only had to do these steps for the training. The test data I was able to do in one run. 
 
+I submitted this to the competition. 
+The link to the competition is here. The data file is to big for download so the data can be viewed here as well.
+https://www.kaggle.com/competitions/mayo-clinic-strip-ai/data
+
 ## Summary
 
